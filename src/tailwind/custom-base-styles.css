@@ -1,37 +1,37 @@
 /* custom-base-styles */
 
 h1 {
-  @apply text-5xl leading-none;
-  @screen lg {
-    @apply text-6xl leading-none;
-  }
-}
-
-h2 {
   @apply text-4xl leading-none;
   @screen lg {
     @apply text-5xl leading-none;
   }
 }
 
-h3 {
-  @apply text-3xl leading-none;
+h2 {
+  @apply text-3xl leading-tight;
   @screen lg {
     @apply text-4xl leading-none;
   }
 }
 
-h4 {
+h3 {
   @apply text-2xl leading-none;
   @screen lg {
     @apply text-3xl leading-none;
   }
 }
 
-h5 {
+h4 {
   @apply text-xl leading-none;
   @screen lg {
     @apply text-2xl leading-none;
+  }
+}
+
+h5 {
+  @apply text-lg leading-none;
+  @screen lg {
+    @apply text-xl leading-none;
   }
 }
 h6 {
@@ -47,7 +47,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply mb-6 mt-10 font-bold;
+  @apply mb-3 mt-6 font-bold;
 }
 p {
   @apply mb-6;
@@ -58,5 +58,18 @@ a {
 }
 
 body {
-  @apply font-raleway;
+  @apply font-work;
+}
+
+ul {
+  @apply list-inside list-disc pl-4;
+  li {
+    @apply mb-2;
+  }
+}
+ol {
+  @apply list-decimal list-inside pl-4;
+  li {
+    @apply mb-2;
+  }
 }

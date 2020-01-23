@@ -19,7 +19,9 @@ export default function CommonQuestions({ data }) {
         <div className="text-brand-gray-light text-center mb-0   text-sm tracking-wide">
           HELP CENTRE
         </div>
-        <h3 className="text-center font-bold mb-24 mt-0">Common Questions </h3>
+        <h3 className="text-center text-brand-gray-light font-bold mb-24 mt-0">
+          Common Questions{" "}
+        </h3>
         {data.map(qa => {
           return (
             <Question
@@ -44,20 +46,20 @@ function Question({ question, answer }) {
       `}
     >
       <h5
-        className="font-bold flex items-center cursor-pointer mt-2 mb-1 leading-snug"
+        className="font-bold flex text-brand-gray-light items-center cursor-pointer mt-2 mb-1 leading-snug"
         onClick={e => {
           setOpen(o => !o)
         }}
       >
-        {!open && <GoPlus className="text-brand-orange mr-3" />}
-        {open && <GoDash className="text-brand-orange mr-3" />}
+        {!open && <GoPlus className="text-brand-green mr-3" />}
+        {open && <GoDash className="text-brand-green mr-3" />}
         {question}
       </h5>
       <div className="lg:pl-20 pt-2">
         <Collapse isOpened={open}>
           <div
             css={css`
-              ${tw`border-l-4 pl-6 border-brand-orange  `}
+              ${tw`border-l-4 pl-6 border-brand-green  `}
               p {
                 margin-bottom: 0;
                 padding-bottom: 1.5rem;

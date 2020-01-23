@@ -97,164 +97,206 @@ export default function Hero({
   }, [amount])
 
   return (
-    <BackgroundImage
-      fluid={[
-        heroBannerImage
-          ? heroBannerImage.fluid
-          : "linear-gradient(#393939,#393939)",
-      ]}
+    <div
       css={css`
-        &::after,
-        &::before {
-          background-position: 77% 40%;
-          background-size: auto 105%;
-          /* @lg */
-          @media (min-width: 1024px) {
-            background-position: 50% 10%;
-            background-size: cover;
-          }
-        }
+        margin-top: -100px;
       `}
-      style={{ backgroundSize: "", backgroundPosition: "" }}
+      id="hero"
     >
-      <div
+      {" "}
+      <BackgroundImage
+        fluid={[
+          heroBannerImage
+            ? heroBannerImage.fluid
+            : "linear-gradient(#5b41bb,#5b41bb)",
+        ]}
         css={css`
-          background-image: linear-gradient(
-            rgba(31, 31, 31, 0.6),
-            rgba(31, 31, 31, 0.4)
-          );
-          /* @lg */
-          @media (min-width: 1024px) {
-            background-image: linear-gradient(
-              rgba(21, 21, 21, 0.2),
-              rgba(21, 21, 21, 0.2)
-            );
+          &::after,
+          &::before {
+            background-position: 77% 40%;
+            background-size: auto 105%;
+            /* @lg */
+            @media (min-width: 1024px) {
+              background-position: 50% 10%;
+              background-size: cover;
+            }
           }
         `}
+        style={{ backgroundSize: "", backgroundPosition: "" }}
       >
-        <div className="container pt-16 lg:pt-48 pb-12 text-white ">
-          <div className="text-center lg:text-left">
-            {" "}
-            {mainHeadline && (
-              <h1 className="text-4xl font-bold mb-3 leading-snug">
-                {mainHeadline}
-              </h1>
-            )}
-            {subHeadline && (
-              <h2 className="text-2xl font-bold  mt-3 mb-12 leading-snug">
-                {subHeadline}
-              </h2>
-            )}
-          </div>
-          <div
-            id="calculator"
-            className="bg-white rounded-lg px-8 py-10 mb-16 relative"
-            css={css`
-              .label {
-                ${tw`text-brand-gray-light text-sm font-bold -mb-2`}
-              }
-              .select {
-                &__indicator-separator {
-                  display: none;
-                }
-                &__value-container {
-                  padding: 0;
-                }
-                &__menu {
-                  ${tw`bg-brand-gray-bg -mx-4 px-2 py-2   border-none shadow-none`}
-                  width: calc(100% + 2rem)
-                }
-                &__control,
-                &__control--is-focused {
-                  ${tw`border-none shadow-none`}
-                  background-color: transparent;
-                }
-                &__option,
-                &__single-value {
-                  ${tw`text-black text-lg font-semibold bg-tansparent`}
-                  &--is-selected {
-                    ${tw`text-white bg-brand-orange`}
-                  }
-                  &--is-focused {
-                    ${tw`bg-brand-gray-light text-white`}
-                  }
-                }
-              }
-            `}
-          >
-            <img
-              src={arrow}
-              css={css`
-                ${tw`absolute w-32 hidden lg:block`}
-                left: -6rem;
-              `}
-            ></img>
-            <div className="row lg:flex-no-wrap   items-stretch">
-              <div className="col flex-shrink lg:flex items-center flex-col items-stretch justify-center w-full xs:w-1/2 lg:w-1/4 ">
-                <div className="bg-brand-gray-bg  px-4 py-3 mb-8 lg:mb-0 rounded-lg">
-                  <div className="label">Loan Amount</div>
-                  <Select
-                    // menuIsOpen={true}
-                    classNamePrefix="select"
-                    isSearchable={false}
-                    options={amountRange}
-                    value={amount}
-                    onChange={val => {
-                      setAmount(val)
-                    }}
-                  ></Select>
-                </div>
-              </div>
-              <div className="col flex-shrink lg:flex items-center flex-col items-stretch justify-center w-full xs:w-1/2 lg:w-1/4  ">
-                <div className="bg-brand-gray-bg  px-4 py-3 mb-8 lg:mb-0  rounded-lg">
-                  <div className="label">Loan Term</div>
-                  <Select
-                    onMenuOpen={() => {}}
-                    // menuIsOpen={true}
-                    isSearchable={false}
-                    classNamePrefix="select"
-                    options={termSet}
-                    value={term}
-                    onChange={val => {
-                      setTerm(val)
-                    }}
-                  ></Select>
-                </div>
-              </div>
-              <div className="col w-full lg:w-auto ">
-                <Cta className="w-full h-full whitespace-no-wrap lg:w-auto flex items-center justify-center"></Cta>
-              </div>
-              <div className="col w-auto mt-8 lg:mt-0">
-                {points.points &&
-                  points.points.map(point => (
-                    <div
-                      className="text-black font-bold font-work flex items-stretch"
-                      key={point}
+        <div
+          css={css`
+            background-image: linear-gradient(
+              rgba(31, 31, 31, 0.6),
+              rgba(31, 31, 31, 0.4)
+            );
+            /* @lg */
+            @media (min-width: 1024px) {
+              background-image: linear-gradient(
+                rgba(21, 21, 21, 0.2),
+                rgba(21, 21, 21, 0.2)
+              );
+            }
+          `}
+        >
+          <div className="container pt-48 lg:pt-64 pb-12  text-white ">
+            <div className="row">
+              <div className="col w-full lg:w-1/2">
+                <div className=" ">
+                  <span id="handle"></span>
+                  {mainHeadline && (
+                    <h1 className="text-4xl font-bold mb-3 mt-0 leading-tight">
+                      {mainHeadline}
+                    </h1>
+                  )}
+                  {subHeadline && (
+                    <h2
+                      className="text-xl  font-normal mt-3 mb-12 leading-snug"
+                      css={css`
+                        strong {
+                          ${tw`text-brand-green`}
+                        }
+                      `}
                     >
-                      <div>
+                      {subHeadline}
+                    </h2>
+                  )}
+                </div>
+                <div className="hidden lg:block">
+                  <Points points={points} />
+                </div>
+              </div>
+              <div className="col w-full lg:w-1/2">
+                {" "}
+                <div
+                  id="calculator"
+                  className="bg-white rounded-lg px-6 py-10 mt-2 mb-16 relative"
+                  css={css`
+                    .label {
+                      ${tw`text-brand-gray-light text-sm font-bold -mb-2`}
+                    }
+                    .select {
+                      &__indicator-separator {
+                        display: none;
+                      }
+                      &__value-container {
+                        padding: 0;
+                      }
+                      &__menu {
+                        ${tw`bg-brand-gray-bg -mx-4 px-2 py-2   border-none shadow-none`}
+                        width: calc(100% + 2rem)
+                      }
+                      &__control,
+                      &__control--is-focused {
+                        ${tw`border-none shadow-none`}
+                        background-color: transparent;
+                      }
+                      &__option,
+                      &__single-value {
+                        ${tw`text-brand-gray-light text-lg   bg-tansparent`}
+                        &--is-selected {
+                          ${tw`text-white bg-brand-green`}
+                        }
+                        &--is-focused {
+                          ${tw`bg-brand-gray-light text-white`}
+                        }
+                      }
+                    }
+                  `}
+                >
+                  <div className=" ">
+                    <h3 className="text-center text-brand-gray-light text-2xl mt-0  mb-10">
+                      How much do you want to borrow?
+                    </h3>
+                    <div className="row items-center justify-center mb-8">
+                      <div className="col w-full xs:w-5/12 lg:w-2/5  flex-shrink ">
                         {" "}
-                        <IoIosCheckmarkCircle className="text-brand-orange w-5 h-5 mr-2 mt-1" />
-                      </div>{" "}
-                      {point}
+                        <div className="bg-brand-gray-bg  px-4 py-3   rounded-lg">
+                          <Select
+                            // menuIsOpen={true}
+                            classNamePrefix="select"
+                            isSearchable={false}
+                            options={amountRange}
+                            value={amount}
+                            onChange={val => {
+                              setAmount(val)
+                            }}
+                          ></Select>
+                        </div>
+                      </div>
+                      <div className="col text-brand-gray-light font-bold font-titillium  xs:my-0 my-3  ">
+                        for
+                      </div>
+                      <div className="col w-full xs:w-5/12 lg:w-2/5  ">
+                        <div className="bg-brand-gray-bg  px-4 py-3    rounded-lg">
+                          <Select
+                            onMenuOpen={() => {}}
+                            // menuIsOpen={true}
+                            isSearchable={false}
+                            classNamePrefix="select"
+                            options={termSet}
+                            value={term}
+                            onChange={val => {
+                              setTerm(val)
+                            }}
+                          ></Select>
+                        </div>
+                      </div>
                     </div>
-                  ))}
+                    <div className="col w-full  justify-center flex flex-shrink">
+                      <Cta className="w-64 h-16"></Cta>
+                    </div>
+                  </div>
+                  {/* <Select menuIsOpen={true} classNamePrefix="select"></Select> */}
+                </div>
               </div>
             </div>
-            {/* <Select menuIsOpen={true} classNamePrefix="select"></Select> */}
           </div>
-          {amount && (
-            <div
-              className="leading-relaxed"
-              dangerouslySetInnerHTML={{
-                __html:
-                  amount.value < 1000
-                    ? repArk.below.md.html
-                    : repArk.normal.md.html,
-              }}
-            ></div>
-          )}
         </div>
-      </div>
-    </BackgroundImage>
+      </BackgroundImage>
+      {amount && (
+        <div className="container pt-20">
+          {" "}
+          <div
+            className="leading-relaxed bg-brand-gray-bg text-brand-gray-light p-6 rounded"
+            css={css`
+              p:last-of-type {
+                margin-bottom: 0;
+              }
+              strong {
+                ${tw`text-xl`}
+              }
+            `}
+            dangerouslySetInnerHTML={{
+              __html:
+                amount.value < 1000
+                  ? repArk.below.md.html
+                  : repArk.normal.md.html,
+            }}
+          ></div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+function Points({ points }) {
+  return (
+    <>
+      {" "}
+      {points.points &&
+        points.points.map(point => (
+          <div
+            className="text-white font-bold font-work flex items-stretch border-l-2 border-white pl-6"
+            key={point}
+          >
+            <div>
+              {" "}
+              <IoIosCheckmarkCircle className="text-brand-green w-5 h-5 mr-2 mt-1" />
+            </div>{" "}
+            {point}
+          </div>
+        ))}
+    </>
   )
 }

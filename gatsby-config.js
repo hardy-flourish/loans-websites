@@ -50,10 +50,6 @@ module.exports = {
               family: "Titillium Web",
               variants: ["400"],
             },
-            {
-              family: "Raleway",
-              variants: ["400", "500", "700"],
-            },
           ],
         },
         //formats: ['woff2', 'woff'],

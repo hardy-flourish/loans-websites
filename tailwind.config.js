@@ -65,15 +65,19 @@ module.exports = {
           orange: "#ff5e14",
           green: "#0bde97",
           blue: "#148eff",
+          purple: "#5b41bb",
           black: "#161616",
           dark: "#252525",
-          "gray-bg": "#eaeaea",
-          "gray-light": "#7d7d7d",
+          "gray-bg": "#eff4f8",
+          "gray-light": "#38526d",
         },
       },
     },
   },
-  variants: { borderWidth: ["responsive", "first", "last", "hover", "focus"] },
+  variants: {
+    borderWidth: ["responsive", "first", "last", "hover", "focus"],
+    fontSize: ["responsive", "first", "last", "hover", "focus"],
+  },
   plugins: [],
 }
 

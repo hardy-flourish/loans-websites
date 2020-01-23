@@ -36,13 +36,13 @@ export default function SideMenu({ menuIsOpen, setMenuIsOpen }) {
         onClick={() => {
           setMenuIsOpen(false)
         }}
-        className="absolute top-0 right-0 w-20 h-20 p-6 text-brand-orange"
+        className="absolute top-0 right-0 w-20 h-20 p-6 text-white"
       />
       {menu &&
         menu.nodes.map(item => {
           return (
             <Link
-              className="uppercase mb-6 tracking-wide text-white "
+              className="  mb-6 tracking-wide text-white "
               key={item.slug}
               to={item.slug == "/" ? "/" : `/${item.slug}/`.replace("//", "/")}
             >

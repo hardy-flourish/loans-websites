@@ -1,5 +1,5 @@
 import React from "react"
-import logo from "../images/logo-small.svg"
+import logo from "../images/logo.png"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import css from "@emotion/css"
 import tw from "tailwind.macro"
@@ -43,16 +43,26 @@ export default function Footer() {
 
   return (
     <div className="bg-brand-dark py-12">
-      <div className="container">
+      <div className="container  ">
         <div className="row">
-          <div className="col w-full lg:w-1/5 flex justify-center lg:justify-start">
-            <img
-              className="w-20 h-20 mb-12 mt-4 lg:mb-0 lg:mt-0"
-              src={logo}
-            ></img>
+          <div className="col w-full lg:w-1/5 flex  ">
+            <Link to="/">
+              {" "}
+              <img
+                className=" w-full h-auto mb-8"
+                css={css`
+                  max-width: 250px;
+                  /* @lg */
+                  @media (min-width: 1024px) {
+                    max-width: 300px;
+                  }
+                `}
+                src={logo}
+              ></img>
+            </Link>
           </div>
           <div
-            className="col w-full lg:w-1/5 text-center lg:text-left  "
+            className="col w-full lg:w-1/5  "
             css={css`
               a {
                 ${tw`text-white font-titillium block font-normal mb-2 text-brand-gray-bg hover:text-white`}
@@ -71,7 +81,7 @@ export default function Footer() {
             )}
           </div>
           <div
-            className="col w-full lg:w-1/5 text-center lg:text-left"
+            className="col w-full lg:w-1/5  "
             css={css`
               a {
                 ${tw`text-white font-titillium block font-normal mb-2 text-brand-gray-bg hover:text-white`}
@@ -90,7 +100,7 @@ export default function Footer() {
             )}
           </div>
           <div
-            className="col w-full lg:w-1/5 text-center lg:text-left"
+            className="col w-full lg:w-1/5  "
             css={css`
               a {
                 ${tw`text-white font-titillium block font-normal  mb-2 text-brand-gray-bg hover:text-white`}
@@ -109,7 +119,7 @@ export default function Footer() {
             )}
           </div>
           <div
-            className="col w-full lg:w-1/5 text-center lg:text-left"
+            className="col w-full lg:w-1/5  "
             css={css`
               a {
                 ${tw`text-white font-titillium block font-normal mb-2 text-brand-gray-bg hover:text-white`}
