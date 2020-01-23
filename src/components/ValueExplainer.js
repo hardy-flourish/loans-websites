@@ -10,7 +10,9 @@ import { useStaticQuery, graphql } from "gatsby"
 export default function ValueExplainer() {
   const { ValueExplainer } = useStaticQuery(graphql`
     {
-      ValueExplainer: contentfulValueExplainer {
+      ValueExplainer: contentfulValueExplainer(
+        website: { in: ["Compare Guarantor Loans"] }
+      ) {
         headline
         firstSectionTitle
         firstSectionContent

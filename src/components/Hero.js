@@ -31,7 +31,10 @@ export default function Hero({
           }
         }
       }
-      points: contentfulCoreValuePropositionBox(node_locale: { eq: "en-US" }) {
+      points: contentfulCoreValuePropositionBox(
+        node_locale: { eq: "en-US" }
+        website: { in: ["Compare Guarantor Loans"] }
+      ) {
         points
       }
     }

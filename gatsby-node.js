@@ -13,9 +13,15 @@ exports.createPages = async ({ graphql, actions }) => {
   const { data } = await graphql(
     `
       {
-        allContentfulPage(filter: { node_locale: { eq: "en-US" } }) {
+        allContentfulPage(
+          filter: {
+            node_locale: { eq: "en-US" }
+            website: { in: ["Compare Guarantor Loans"] }
+          }
+        ) {
           nodes {
             slug
+
             contentful_id
           }
         }
