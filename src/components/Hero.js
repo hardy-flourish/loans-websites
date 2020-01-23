@@ -99,7 +99,7 @@ export default function Hero({
   return (
     <div
       css={css`
-        margin-top: -100px;
+        margin-top: -80px;
       `}
       id="hero"
     >
@@ -113,32 +113,17 @@ export default function Hero({
         css={css`
           &::after,
           &::before {
-            background-position: 77% 40%;
-            background-size: auto 105%;
+            background-position: 30% 0%;
+
             /* @lg */
             @media (min-width: 1024px) {
-              background-position: 50% 10%;
-              background-size: cover;
+              background-position: 50% 50%;
             }
           }
         `}
-        style={{ backgroundSize: "", backgroundPosition: "" }}
+        style={{ backgroundPosition: "" }}
       >
-        <div
-          css={css`
-            background-image: linear-gradient(
-              rgba(31, 31, 31, 0.6),
-              rgba(31, 31, 31, 0.4)
-            );
-            /* @lg */
-            @media (min-width: 1024px) {
-              background-image: linear-gradient(
-                rgba(21, 21, 21, 0.2),
-                rgba(21, 21, 21, 0.2)
-              );
-            }
-          `}
-        >
+        <div>
           <div className="container pt-48 lg:pt-64 pb-12  text-white ">
             <div className="row">
               <div className="col w-full lg:w-1/2">

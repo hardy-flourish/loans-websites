@@ -5,6 +5,7 @@ import logo from "../images/logo.png"
 import { FiMenu } from "react-icons/fi"
 import css from "@emotion/css"
 import { Global } from "@emotion/core"
+import tw from "tailwind.macro"
 export default function Header({ setMenuIsOpen }) {
   const { menu } = useStaticQuery(graphql`
     {
@@ -52,7 +53,7 @@ export default function Header({ setMenuIsOpen }) {
       <Global
         styles={css`
           body {
-            padding-top: 100px;
+            padding-top: 80px;
           }
         `}
       ></Global>
@@ -63,7 +64,15 @@ export default function Header({ setMenuIsOpen }) {
           transition: background-color 500ms;
         `}
       >
-        <div className="container py-4 border-b border-white ">
+        <div
+          className="container px-4 py-4 border-b"
+          css={css`
+            ${tw` border-white `}
+            #header.bg-brand-purple & {
+              ${tw` border-transparent `}
+            }
+          `}
+        >
           <div className="flex justify-between items-center">
             <div>
               <Link to="/">
@@ -71,10 +80,10 @@ export default function Header({ setMenuIsOpen }) {
                 <img
                   className=" w-full h-auto "
                   css={css`
-                    max-width: 250px;
+                    max-width: 220px;
                     /* @lg */
                     @media (min-width: 1024px) {
-                      max-width: 300px;
+                      max-width: 250px;
                     }
                   `}
                   src={logo}
