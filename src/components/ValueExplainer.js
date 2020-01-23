@@ -11,7 +11,9 @@ import BackgroundImage from "gatsby-background-image"
 export default function ValueExplainer() {
   const { ValueExplainer } = useStaticQuery(graphql`
     {
-      ValueExplainer: contentfulValueExplainer {
+      ValueExplainer: contentfulValueExplainer(
+        website: { in: ["Compare Instant Loans"] }
+      ) {
         headline
         firstSectionTitle
         firstSectionContent

@@ -19,7 +19,10 @@ export default function Hero({
 }) {
   const { repArk, points } = useStaticQuery(graphql`
     {
-      repArk: contentfulRepresentativeApr(node_locale: { eq: "en-US" }) {
+      repArk: contentfulRepresentativeApr(
+        node_locale: { eq: "en-US" }
+        website: { in: ["Compare Instant Loans"] }
+      ) {
         normal: repApr {
           md: childMarkdownRemark {
             html
@@ -31,7 +34,10 @@ export default function Hero({
           }
         }
       }
-      points: contentfulCoreValuePropositionBox(node_locale: { eq: "en-US" }) {
+      points: contentfulCoreValuePropositionBox(
+        node_locale: { eq: "en-US" }
+        website: { in: ["Compare Instant Loans"] }
+      ) {
         points
       }
     }

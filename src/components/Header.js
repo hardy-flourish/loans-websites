@@ -12,6 +12,7 @@ export default function Header({ setMenuIsOpen }) {
       menu: allContentfulPage(
         filter: {
           node_locale: { eq: "en-US" }
+          website: { in: ["Compare Instant Loans"] }
           addToMainNavigation: { eq: true }
         }
       ) {
