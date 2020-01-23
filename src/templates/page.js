@@ -26,6 +26,7 @@ export const query = graphql`
   query($contentful_id: String) {
     heroData: contentfulPage(
       node_locale: { eq: "en-US" }
+      website: { in: ["Compare Guarantor Loans"] }
       contentful_id: { eq: $contentful_id }
     ) {
       hasAHeroBanner
@@ -42,12 +43,14 @@ export const query = graphql`
     }
     VE: contentfulPage(
       node_locale: { eq: "en-US" }
+      website: { in: ["Compare Guarantor Loans"] }
       contentful_id: { eq: $contentful_id }
     ) {
       hasAValueExplainer
     }
     QA: contentfulPage(
       node_locale: { eq: "en-US" }
+      website: { in: ["Compare Guarantor Loans"] }
       contentful_id: { eq: $contentful_id }
     ) {
       commonQuestions {
@@ -61,6 +64,7 @@ export const query = graphql`
     }
     Content: contentfulPage(
       node_locale: { eq: "en-US" }
+      website: { in: ["Compare Guarantor Loans"] }
       contentful_id: { eq: $contentful_id }
     ) {
       main: mainContentSection {

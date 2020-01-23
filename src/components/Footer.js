@@ -10,7 +10,10 @@ export default function Footer() {
   } = useStaticQuery(graphql`
     {
       nav: allContentfulFooterNavigation(
-        filter: { node_locale: { eq: "en-US" } }
+        filter: {
+          node_locale: { eq: "en-US" }
+          website: { in: ["Compare Guarantor Loans"] }
+        }
       ) {
         nodes {
           firstColumn {
