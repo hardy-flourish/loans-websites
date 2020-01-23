@@ -6,7 +6,7 @@ import css from "@emotion/css"
 import Select from "react-select"
 import Cta from "./Cta"
 import { IoIosCheckmarkCircle } from "react-icons/io"
-import get from "lodash.get"
+import arrow from "../images/get-started.png"
 export default function Hero({
   data: {
     heroBannerImage,
@@ -148,7 +148,7 @@ export default function Hero({
           </div>
           <div
             id="calculator"
-            className="bg-white rounded-lg px-8 py-10 mb-16"
+            className="bg-white rounded-lg px-8 py-10 mb-16 relative"
             css={css`
               .label {
                 ${tw`text-brand-gray-light text-sm font-bold -mb-2`}
@@ -182,6 +182,13 @@ export default function Hero({
               }
             `}
           >
+            <img
+              src={arrow}
+              css={css`
+                ${tw`absolute w-32 hidden lg:block`}
+                left: -6rem;
+              `}
+            ></img>
             <div className="row lg:flex-no-wrap   items-stretch">
               <div className="col flex-shrink lg:flex items-center flex-col items-stretch justify-center w-full xs:w-1/2 lg:w-1/4 ">
                 <div className="bg-brand-gray-bg  px-4 py-3 mb-8 lg:mb-0 rounded-lg">
