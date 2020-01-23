@@ -46,7 +46,7 @@ export default function ValueExplainer() {
     responsive: [
       {
         breakpoint: 1024,
-        settings: { dots: true, slidesToShow: 1.1 },
+        settings: { dots: true, slidesToShow: 1.2 },
       },
     ],
   }
@@ -58,6 +58,7 @@ export default function ValueExplainer() {
         </h3>
         <div
           css={css`
+            ${tw`lg:mx-0 -mx-6`}
             .badge {
               ${tw`absolute bg-brand-orange z-10 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold   leading-none`}
               right: 1.75rem;
@@ -72,9 +73,12 @@ export default function ValueExplainer() {
             .slide {
               ${tw`px-3`}
             }
-
+            .slick-list {
+              ${tw`lg:pl-0 pl-4`}
+            }
             .slick-dots {
               text-align: left;
+              ${tw`lg:pl-0 pl-4`}
               li {
                 margin: 0 0.75rem;
                 button:before {

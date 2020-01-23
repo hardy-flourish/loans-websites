@@ -189,9 +189,9 @@ export default function Hero({
                 left: -6rem;
               `}
             ></img>
-            <div className="row lg:flex-no-wrap   items-stretch">
+            <div className="row lg:flex-no-wrap  items-center ">
               <div className="col flex-shrink lg:flex items-center flex-col items-stretch justify-center w-full xs:w-1/2 lg:w-1/4 ">
-                <div className="bg-brand-gray-bg  px-4 py-3 mb-8 lg:mb-0 rounded-lg">
+                <div className="lg:h-20 flex flex-col justify-center bg-brand-gray-bg  px-4 py-3 mb-8 lg:mb-0 rounded-lg">
                   <div className="label">Loan Amount</div>
                   <Select
                     // menuIsOpen={true}
@@ -206,7 +206,7 @@ export default function Hero({
                 </div>
               </div>
               <div className="col flex-shrink lg:flex items-center flex-col items-stretch justify-center w-full xs:w-1/2 lg:w-1/4  ">
-                <div className="bg-brand-gray-bg  px-4 py-3 mb-8 lg:mb-0  rounded-lg">
+                <div className="lg:h-20 flex flex-col justify-center bg-brand-gray-bg  px-4 py-3 mb-8 lg:mb-0  rounded-lg">
                   <div className="label">Loan Term</div>
                   <Select
                     onMenuOpen={() => {}}
@@ -221,8 +221,8 @@ export default function Hero({
                   ></Select>
                 </div>
               </div>
-              <div className="col w-full lg:w-auto ">
-                <Cta className="w-full h-full whitespace-no-wrap lg:w-auto flex items-center justify-center"></Cta>
+              <div className="col w-full lg:w-auto  flex flex-col justify-center   ">
+                <Cta className="w-full lg:h-20  whitespace-no-wrap lg:w-auto flex items-center justify-center"></Cta>
               </div>
               <div className="col w-auto mt-8 lg:mt-0">
                 {points.points &&
