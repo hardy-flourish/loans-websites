@@ -10,8 +10,8 @@ module.exports = {
       xl: "1280px",
     },
     fontFamily: {
-      raleway: [
-        "Raleway",
+      roboto: [
+        "Roboto",
 
         "-apple-system",
         "BlinkMacSystemFont",
@@ -64,7 +64,8 @@ module.exports = {
         brand: {
           orange: "#ff5e14",
           green: "#0bde97",
-          blue: "#148eff",
+          blue: "#0920e9",
+          yellow: "#ffce22",
           black: "#161616",
           dark: "#252525",
           "gray-bg": "#eaeaea",

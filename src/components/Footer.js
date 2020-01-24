@@ -1,5 +1,5 @@
 import React from "react"
-import logo from "../images/logo-small.svg"
+import logo from "../images/logo-sm.png"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import css from "@emotion/css"
 import tw from "tailwind.macro"
@@ -12,7 +12,7 @@ export default function Footer() {
       nav: allContentfulFooterNavigation(
         filter: {
           node_locale: { eq: "en-US" }
-          website: { in: ["Compare Guarantor Loans"] }
+          website: { in: ["Compare No Guarantor Loans"] }
         }
       ) {
         nodes {

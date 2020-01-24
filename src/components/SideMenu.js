@@ -10,7 +10,7 @@ export default function SideMenu({ menuIsOpen, setMenuIsOpen }) {
       menu: allContentfulPage(
         filter: {
           node_locale: { eq: "en-US" }
-          website: { in: ["Compare Guarantor Loans"] }
+          website: { in: ["Compare No Guarantor Loans"] }
           addToMainNavigation: { eq: true }
         }
       ) {
@@ -37,7 +37,7 @@ export default function SideMenu({ menuIsOpen, setMenuIsOpen }) {
         onClick={() => {
           setMenuIsOpen(false)
         }}
-        className="absolute top-0 right-0 w-20 h-20 p-6 text-brand-orange"
+        className="absolute top-0 right-0 w-20 h-20 p-6 text-white"
       />
       {menu &&
         menu.nodes.map(item => {

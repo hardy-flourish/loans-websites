@@ -6,7 +6,7 @@ import { GoPlus, GoDash } from "react-icons/go"
 
 export default function CommonQuestions({ data }) {
   return (
-    <div className="bg-brand-gray-bg ">
+    <div className=" ">
       {" "}
       <div
         className="container py-24"
@@ -16,10 +16,9 @@ export default function CommonQuestions({ data }) {
           }
         `}
       >
-        <div className="text-brand-gray-light text-center mb-0   text-sm tracking-wide">
-          HELP CENTRE
-        </div>
-        <h3 className="text-center font-bold mb-24 mt-0">Common Questions </h3>
+        <h3 className="text-center text-3xl  font-normal mb-24 mt-0">
+          Commonly Asked Questions{" "}
+        </h3>
         {data.map(qa => {
           return (
             <Question
@@ -37,27 +36,30 @@ export default function CommonQuestions({ data }) {
 function Question({ question, answer }) {
   const [open, setOpen] = useState(false)
   return (
-    <div
-      className="border-t last:border-b py-6"
-      css={css`
-        border-color: #d7d7d7;
-      `}
-    >
+    <div>
       <h5
-        className="font-bold flex items-center cursor-pointer mt-2 mb-1 leading-snug"
+        className="font-normal flex items-center cursor-pointer mt-2 mb-1 leading-snug border border-black  text-brand-blue px-3 py-2"
         onClick={e => {
           setOpen(o => !o)
         }}
       >
-        {!open && <GoPlus className="text-brand-orange mr-3" />}
-        {open && <GoDash className="text-brand-orange mr-3" />}
         {question}
+        {!open && (
+          <span className="inline-block ml-auto border-black border p-1 rounded-full">
+            <GoPlus className="w-4 h-4 text-black" />
+          </span>
+        )}
+        {open && (
+          <span className="inline-block ml-auto border-black border p-1 rounded-full">
+            <GoDash className="w-4 h-4 text-black" />
+          </span>
+        )}
       </h5>
-      <div className="lg:pl-20 pt-2">
+      <div className="lg:pl-4 pt-3 ">
         <Collapse isOpened={open}>
           <div
             css={css`
-              ${tw`border-l-4 pl-6 border-brand-orange  `}
+              padding-bottom: 1rem;
               p {
                 margin-bottom: 0;
                 padding-bottom: 1.5rem;

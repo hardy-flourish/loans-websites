@@ -51,8 +51,8 @@ module.exports = {
               variants: ["400"],
             },
             {
-              family: "Raleway",
-              variants: ["400", "500", "700"],
+              family: "Roboto",
+              variants: ["400", "700"],
             },
           ],
         },

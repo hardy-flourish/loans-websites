@@ -6,7 +6,7 @@ import css from "@emotion/css"
 import Select from "react-select"
 import Cta from "./Cta"
 import { IoIosCheckmarkCircle } from "react-icons/io"
-import arrow from "../images/get-started.png"
+import { IoMdArrowDropdown } from "react-icons/io"
 export default function Hero({
   data: {
     heroBannerImage,
@@ -21,7 +21,7 @@ export default function Hero({
     {
       repArk: contentfulRepresentativeApr(
         node_locale: { eq: "en-US" }
-        website: { in: ["Compare Guarantor Loans"] }
+        website: { in: ["Compare No Guarantor Loans"] }
       ) {
         normal: repApr {
           md: childMarkdownRemark {
@@ -36,7 +36,7 @@ export default function Hero({
       }
       points: contentfulCoreValuePropositionBox(
         node_locale: { eq: "en-US" }
-        website: { in: ["Compare Guarantor Loans"] }
+        website: { in: ["Compare No Guarantor Loans"] }
       ) {
         points
       }
@@ -103,164 +103,214 @@ export default function Hero({
   }, [amount])
 
   return (
-    <BackgroundImage
-      fluid={[
-        heroBannerImage
-          ? heroBannerImage.fluid
-          : "linear-gradient(#393939,#393939)",
-      ]}
-      css={css`
-        &::after,
-        &::before {
-          background-position: 77% 40%;
-          background-size: auto 105%;
-          /* @lg */
-          @media (min-width: 1024px) {
-            background-position: 50% 10%;
-            background-size: cover;
-          }
-        }
-      `}
-      style={{ backgroundSize: "", backgroundPosition: "" }}
-    >
-      <div
+    <>
+      <BackgroundImage
+        fluid={[
+          heroBannerImage
+            ? heroBannerImage.fluid
+            : "linear-gradient(#393939,#393939)",
+        ]}
         css={css`
-          background-image: linear-gradient(
-            rgba(31, 31, 31, 0.6),
-            rgba(31, 31, 31, 0.4)
-          );
-          /* @lg */
-          @media (min-width: 1024px) {
-            background-image: linear-gradient(
-              rgba(21, 21, 21, 0.2),
-              rgba(21, 21, 21, 0.2)
-            );
+          &::after,
+          &::before {
+            background-position: 20% 50%;
+            background-size: cover;
+            /* @lg */
+            @media (min-width: 1024px) {
+              background-position: 50% 50%;
+              background-size: cover;
+            }
+          }
+        `}
+        style={{ backgroundSize: "", backgroundPosition: "" }}
+      >
+        <div
+          css={css`
+            /* @lg */
+            @media (max-width: 1023px) {
+              background-image: linear-gradient(
+                66deg,
+                rgba(235, 241, 245, 0.82) 0%,
+                rgba(164, 193, 220, 0) 100%
+              );
+            }
+          `}
+        >
+          <div className="container pt-20 lg:pt-32 pb-12  text-black ">
+            <div className="row">
+              <div className="col w-full lg:w-1/2"></div>
+              <div className="col w-full lg:w-1/2">
+                <div className=" text-right flex flex-col items-end">
+                  <span id="handle"></span>
+                  {mainHeadline && (
+                    <h1 className="text-4xl font-bold mb-3 mt-0  leading-tight">
+                      {mainHeadline}
+                    </h1>
+                  )}
+                  {subHeadline && (
+                    <h2 className="text-xl  font-normal mt-3 mb-12   leading-snug max-w-sm">
+                      {subHeadline}
+                    </h2>
+                  )}
+                </div>
+                <div className="hidden lg:block">
+                  <Calculator></Calculator>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </BackgroundImage>
+      <div className="lg:hidden block">
+        <Calculator></Calculator>
+      </div>
+      <Points points={points}></Points>
+      {amount && (
+        <div className="container py-12 lg:py-20">
+          {" "}
+          <div
+            className="leading-relaxed "
+            css={css`
+              p:last-of-type {
+                margin-bottom: 0;
+              }
+              strong {
+                ${tw`text-xl`}
+              }
+            `}
+            dangerouslySetInnerHTML={{
+              __html:
+                amount.value < 1000
+                  ? repArk.below.md.html
+                  : repArk.normal.md.html,
+            }}
+          ></div>
+        </div>
+      )}
+    </>
+  )
+
+  function Calculator() {
+    return (
+      <div
+        id="calculator"
+        className="bg-white  lg_rounded-lg px-6 py-10 mt-2 mb-4 lg:mb-16 relative"
+        css={css`
+          .select {
+            &__indicator-separator {
+              display: none;
+            }
+            &__value-container {
+              padding: 0;
+            }
+            &__menu {
+              ${tw`bg-white -mx-2  py-2  border border-black  `}
+              width: calc(100% + .5rem)
+            }
+            &__control,
+            &__control--is-focused {
+              ${tw`border-none shadow-none`}
+              background-color: transparent;
+            }
+            &__option,
+            &__single-value {
+              ${tw`text-black text-lg   bg-tansparent`}
+              &--is-selected {
+                ${tw`text-white bg-brand-blue`}
+              }
+              &--is-focused {
+                ${tw`bg-brand-dark  text-white`}
+              }
+            }
           }
         `}
       >
-        <div className="container pt-16 lg:pt-48 pb-12 text-white ">
-          <div className="text-center lg:text-left">
-            {" "}
-            {mainHeadline && (
-              <h1 className="text-4xl font-bold mb-3 leading-snug">
-                {mainHeadline}
-              </h1>
-            )}
-            {subHeadline && (
-              <h2 className="text-2xl font-bold  mt-3 mb-12 leading-snug">
-                {subHeadline}
-              </h2>
-            )}
-          </div>
-          <div
-            id="calculator"
-            className="bg-white rounded-lg px-8 py-10 mb-16 relative"
-            css={css`
-              .label {
-                ${tw`text-brand-gray-light text-sm font-bold -mb-2`}
-              }
-              .select {
-                &__indicator-separator {
-                  display: none;
-                }
-                &__value-container {
-                  padding: 0;
-                }
-                &__menu {
-                  ${tw`bg-brand-gray-bg -mx-4 px-2 py-2   border-none shadow-none`}
-                  width: calc(100% + 2rem)
-                }
-                &__control,
-                &__control--is-focused {
-                  ${tw`border-none shadow-none`}
-                  background-color: transparent;
-                }
-                &__option,
-                &__single-value {
-                  ${tw`text-black text-lg font-semibold bg-tansparent`}
-                  &--is-selected {
-                    ${tw`text-white bg-brand-orange`}
-                  }
-                  &--is-focused {
-                    ${tw`bg-brand-gray-light text-white`}
-                  }
-                }
-              }
-            `}
-          >
-            <img
-              src={arrow}
-              css={css`
-                ${tw`absolute w-32 hidden lg:block`}
-                left: -6rem;
-              `}
-            ></img>
-            <div className="row lg:flex-no-wrap  items-center ">
-              <div className="col flex-shrink lg:flex items-center flex-col items-stretch justify-center w-full xs:w-1/2 lg:w-1/4 ">
-                <div className="lg:h-20 flex flex-col justify-center bg-brand-gray-bg  px-4 py-3 mb-8 lg:mb-0 rounded-lg">
-                  <div className="label">Loan Amount</div>
-                  <Select
-                    // menuIsOpen={true}
-                    classNamePrefix="select"
-                    isSearchable={false}
-                    options={amountRange}
-                    value={amount}
-                    onChange={val => {
-                      setAmount(val)
-                    }}
-                  ></Select>
-                </div>
-              </div>
-              <div className="col flex-shrink lg:flex items-center flex-col items-stretch justify-center w-full xs:w-1/2 lg:w-1/4  ">
-                <div className="lg:h-20 flex flex-col justify-center bg-brand-gray-bg  px-4 py-3 mb-8 lg:mb-0  rounded-lg">
-                  <div className="label">Loan Term</div>
-                  <Select
-                    onMenuOpen={() => {}}
-                    // menuIsOpen={true}
-                    isSearchable={false}
-                    classNamePrefix="select"
-                    options={termSet}
-                    value={term}
-                    onChange={val => {
-                      setTerm(val)
-                    }}
-                  ></Select>
-                </div>
-              </div>
-              <div className="col w-full lg:w-auto  flex flex-col justify-center   ">
-                <Cta className="w-full lg:h-20  whitespace-no-wrap lg:w-auto flex items-center justify-center"></Cta>
-              </div>
-              <div className="col w-auto mt-8 lg:mt-0">
-                {points.points &&
-                  points.points.map(point => (
-                    <div
-                      className="text-black font-bold font-work flex items-stretch"
-                      key={point}
-                    >
-                      <div>
-                        {" "}
-                        <IoIosCheckmarkCircle className="text-brand-orange w-5 h-5 mr-2 mt-1" />
-                      </div>{" "}
-                      {point}
-                    </div>
-                  ))}
+        <div className=" ">
+          <h3 className="text-center text-2xl mt-0  mb-10">
+            How much do you want to borrow?
+          </h3>
+          <div className="row items-center justify-center mb-8">
+            <div className="col w-full xs:w-5/12 lg:w-2/5  flex-shrink ">
+              {" "}
+              <div className="border border-black  px-4 py-3   rounded-lg">
+                <Select
+                  // menuIsOpen={true}
+                  classNamePrefix="select"
+                  isSearchable={false}
+                  options={amountRange}
+                  value={amount}
+                  components={{
+                    DropdownIndicator: ArrowDown,
+                  }}
+                  onChange={val => {
+                    setAmount(val)
+                  }}
+                ></Select>
               </div>
             </div>
-            {/* <Select menuIsOpen={true} classNamePrefix="select"></Select> */}
+            <div className="col font-titillium  xs:my-0 my-3  ">for</div>
+            <div className="col w-full xs:w-5/12 lg:w-2/5  ">
+              <div className="border border-black  px-4 py-3    rounded-lg">
+                <Select
+                  onMenuOpen={() => {}}
+                  // menuIsOpen={true}
+                  isSearchable={false}
+                  classNamePrefix="select"
+                  options={termSet}
+                  value={term}
+                  components={{ DropdownIndicator: ArrowDown }}
+                  onChange={val => {
+                    setTerm(val)
+                  }}
+                ></Select>
+              </div>
+            </div>
           </div>
-          {amount && (
-            <div
-              className="leading-relaxed"
-              dangerouslySetInnerHTML={{
-                __html:
-                  amount.value < 1000
-                    ? repArk.below.md.html
-                    : repArk.normal.md.html,
-              }}
-            ></div>
-          )}
+          <div className="col w-full  justify-center flex flex-shrink">
+            <Cta className="w-64 h-16 shadow-lg"></Cta>
+          </div>
         </div>
       </div>
-    </BackgroundImage>
+    )
+  }
+}
+
+function Points({ points }) {
+  return (
+    <div className="bg-brand-blue  py-4 lg:py-3">
+      <div className="container lg:px-0 flex flex-wrap flex-col lg:flex-row justify-center py-2 lg:items-center">
+        {points.points &&
+          points.points.map(point => (
+            <div
+              className="text-white font-bold font-work flex items-center mr-4   py-2"
+              key={point}
+            >
+              <div>
+                {" "}
+                <IoIosCheckmarkCircle className="text-brand-yellow w-6  h-6 mr-2" />
+              </div>{" "}
+              {point}
+            </div>
+          ))}
+      </div>
+    </div>
+  )
+}
+
+function ArrowDown({ innerProps, isDisabled }) {
+  return (
+    <svg
+      {...innerProps}
+      xmlns="http://www.w3.org/2000/svg"
+      width={12}
+      height={10}
+      viewBox="0 0 17 15"
+    >
+      <g>
+        <g>
+          <path d="M8.032 14.486L-.195.236H16.26z" />
+        </g>
+      </g>
+    </svg>
   )
 }

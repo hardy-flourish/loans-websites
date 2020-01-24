@@ -5,7 +5,12 @@ import { IoMdStar } from "react-icons/io"
 import { MdStars } from "react-icons/md"
 export default function Reviews() {
   return (
-    <div className="shadow text-center">
+    <div
+      className="shadow text-center"
+      css={css`
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.13);
+      `}
+    >
       <div
         className="container py-8 text"
         css={css`

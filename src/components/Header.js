@@ -1,7 +1,7 @@
 import React from "react"
 import Cta from "./Cta"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import logo from "../images/logo.svg"
+import logo from "../images/logo.png"
 import { GiHamburgerMenu } from "react-icons/gi"
 import css from "@emotion/css"
 export default function Header({ setMenuIsOpen }) {
@@ -10,7 +10,7 @@ export default function Header({ setMenuIsOpen }) {
       menu: allContentfulPage(
         filter: {
           node_locale: { eq: "en-US" }
-          website: { in: ["Compare Guarantor Loans"] }
+          website: { in: ["Compare No Guarantor Loans"] }
           addToMainNavigation: { eq: true }
         }
       ) {
@@ -22,8 +22,8 @@ export default function Header({ setMenuIsOpen }) {
     }
   `)
   return (
-    <div className="shadow">
-      <div className="container py-3">
+    <div className="shadow border-b border-brand-gray-bg">
+      <div className="container py-4">
         <div className="flex justify-between items-center">
           <div>
             <Link to="/">
@@ -46,7 +46,7 @@ export default function Header({ setMenuIsOpen }) {
               menu.nodes.map(item => {
                 return (
                   <Link
-                    className="uppercase mr-6 tracking-wide "
+                    className="  mr-6 tracking-wide "
                     key={item.slug}
                     to={
                       item.slug == "/"
@@ -65,7 +65,7 @@ export default function Header({ setMenuIsOpen }) {
               onClick={() => {
                 setMenuIsOpen(true)
               }}
-              className="w-10 h-10 text-brand-blue"
+              className="w-10 h-10 text-black"
             ></GiHamburgerMenu>
           </div>
         </div>

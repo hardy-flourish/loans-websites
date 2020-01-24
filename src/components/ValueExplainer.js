@@ -11,7 +11,7 @@ export default function ValueExplainer() {
   const { ValueExplainer } = useStaticQuery(graphql`
     {
       ValueExplainer: contentfulValueExplainer(
-        website: { in: ["Compare Guarantor Loans"] }
+        website: { in: ["Compare No Guarantor Loans"] }
       ) {
         headline
         firstSectionTitle
@@ -53,7 +53,7 @@ export default function ValueExplainer() {
     ],
   }
   return (
-    <div>
+    <div className="bg-brand-gray-bg">
       <div className="container py-16 lg:py-20">
         <h3 className="text-center font-bold mt-0 mb-16 lg:mb-20">
           {ValueExplainer.headline}
@@ -121,7 +121,7 @@ export default function ValueExplainer() {
           </Slider>
         </div>
         <div className="text-center mt-20 lg:mt-16">
-          <Cta className="h-20 px-12" />
+          <Cta className="w-64 h-16  px-12" />
         </div>
       </div>
     </div>
