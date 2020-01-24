@@ -49,10 +49,13 @@ export default function Footer() {
       <div className="container">
         <div className="row">
           <div className="col w-full lg:w-1/5 flex justify-center lg:justify-start">
-            <img
-              className="w-20 h-20 mb-12 mt-4 lg:mb-0 lg:mt-0"
-              src={logo}
-            ></img>
+            <div>
+              {" "}
+              <img
+                className="w-20 h-auto mb-12 mt-4 lg:mb-0 lg:mt-0"
+                src={logo}
+              ></img>
+            </div>
           </div>
           <div
             className="col w-full lg:w-1/5 text-center lg:text-left  "
