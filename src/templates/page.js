@@ -30,7 +30,7 @@ export const query = graphql`
     ) {
       hasAHeroBanner
       heroBannerImage {
-        fluid(quality: 100) {
+        fluid(quality: 100, maxWidth: 2200) {
           ...GatsbyContentfulFluid
         }
       }

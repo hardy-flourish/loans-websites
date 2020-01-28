@@ -52,17 +52,19 @@ export default function ValueExplainer() {
   }
   return (
     <div>
-      <div className="container py-16 lg:py-20">
+      <div className="container  py-16 lg:py-20">
         <h3 className="text-center font-bold mt-0 mb-16 lg:mb-20">
           {ValueExplainer.headline}
         </h3>
         <div
           css={css`
+            ${tw`pl-4 lg:pl-0 -mx-6 lg:mx-0 `}
             .badge {
               ${tw`absolute bg-brand-orange z-10 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold   leading-none`}
               right: 1.75rem;
               top: 1rem;
             }
+
             .title {
               ${tw`font-bold text-lg mb-1 mt-6 font-bold text-lg mb-1 font-bold text-lg mb-1`}
             }

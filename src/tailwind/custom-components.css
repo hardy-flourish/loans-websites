@@ -11,6 +11,12 @@
       @apply px-0;
     }
   }
+  &.small {
+    @apply -mx-2;
+    .col {
+      @apply px-2;
+    }
+  }
   .col {
     @apply px-4;
   }

@@ -132,23 +132,23 @@ export default function Hero({
           }
         `}
       >
-        <div className="container pt-16 lg:pt-48 pb-12 text-white ">
+        <div className="container pt-12 lg:pt-48 pb-12 text-white ">
           <div className="text-center lg:text-left">
             {" "}
             {mainHeadline && (
-              <h1 className="text-4xl font-bold mb-3 leading-snug">
+              <h1 className="text-3xl lg:text-4xl mt-0 font-bold mb-3 leading-snug">
                 {mainHeadline}
               </h1>
             )}
             {subHeadline && (
-              <h2 className="text-2xl font-bold  mt-3 mb-12 leading-snug">
+              <h2 className="text-xl lg:text-2xl font-bold  mt-3 mb-12 leading-snug">
                 {subHeadline}
               </h2>
             )}
           </div>
           <div
             id="calculator"
-            className="bg-white rounded-lg px-8 py-10 mb-16 relative"
+            className="bg-white rounded-lg px-6 py-10 mb-16 relative"
             css={css`
               .label {
                 ${tw`text-brand-gray-light text-sm font-bold -mb-2`}
@@ -189,8 +189,8 @@ export default function Hero({
                 left: -6rem;
               `}
             ></img>
-            <div className="row lg:flex-no-wrap   items-stretch">
-              <div className="col flex-shrink lg:flex items-center flex-col items-stretch justify-center w-full xs:w-1/2 lg:w-1/4 ">
+            <div className="row  small lg:flex-no-wrap   items-stretch">
+              <div className="col    flex-shrink lg:flex items-center flex-col items-stretch justify-center w-1/2 lg:w-1/4 ">
                 <div className="bg-brand-gray-bg  px-4 py-3 mb-8 lg:mb-0 rounded-lg">
                   <div className="label">Loan Amount</div>
                   <Select
@@ -205,7 +205,7 @@ export default function Hero({
                   ></Select>
                 </div>
               </div>
-              <div className="col flex-shrink lg:flex items-center flex-col items-stretch justify-center w-full xs:w-1/2 lg:w-1/4  ">
+              <div className="col  col-sm flex-shrink lg:flex items-center flex-col items-stretch justify-center w-1/2 lg:w-1/4  ">
                 <div className="bg-brand-gray-bg  px-4 py-3 mb-8 lg:mb-0  rounded-lg">
                   <div className="label">Loan Term</div>
                   <Select
@@ -244,7 +244,7 @@ export default function Hero({
           </div>
           {amount && (
             <div
-              className="leading-relaxed"
+              className="leading-relaxed px-3 lg:px-0"
               dangerouslySetInnerHTML={{
                 __html:
                   amount.value < 1000
