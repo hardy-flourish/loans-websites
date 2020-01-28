@@ -190,7 +190,7 @@ export default function Hero({
               `}
             ></img>
             <div className="row  small lg:flex-no-wrap   items-stretch">
-              <div className="col    flex-shrink lg:flex items-center flex-col items-stretch justify-center w-1/2 lg:w-1/4 ">
+              <div className="col    flex-shrink lg:flex items-center flex-col items-stretch justify-center w-full xs:w-1/2 lg:w-1/4 ">
                 <div className="bg-brand-gray-bg  px-4 py-3 mb-8 lg:mb-0 rounded-lg">
                   <div className="label">Loan Amount</div>
                   <Select
@@ -205,7 +205,7 @@ export default function Hero({
                   ></Select>
                 </div>
               </div>
-              <div className="col  col-sm flex-shrink lg:flex items-center flex-col items-stretch justify-center w-1/2 lg:w-1/4  ">
+              <div className="col  col-sm flex-shrink lg:flex items-center flex-col items-stretch justify-center w-full xs:w-1/2 lg:w-1/4  ">
                 <div className="bg-brand-gray-bg  px-4 py-3 mb-8 lg:mb-0  rounded-lg">
                   <div className="label">Loan Term</div>
                   <Select
