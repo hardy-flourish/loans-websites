@@ -130,13 +130,13 @@ export default function Hero({
         style={{ backgroundPosition: "" }}
       >
         <div>
-          <div className="container pt-48 lg:pt-64 pb-12  text-white ">
+          <div className="container px-4 pt-32 lg:pt-64 pb-12  text-white ">
             <div className="row">
               <div className="col w-full lg:w-1/2">
                 <div className=" ">
                   <span id="handle"></span>
                   {mainHeadline && (
-                    <h1 className="text-4xl font-bold mb-3 mt-0 leading-tight">
+                    <h1 className="text-3xl lg:text-4xl font-bold mb-3 mt-0 leading-tight">
                       {mainHeadline}
                     </h1>
                   )}
@@ -161,7 +161,7 @@ export default function Hero({
                 {" "}
                 <div
                   id="calculator"
-                  className="bg-white rounded-lg px-6 py-10 mt-2 mb-16 relative"
+                  className="bg-white rounded-lg   px-6 py-10 mt-2 mb-16 relative"
                   css={css`
                     .label {
                       ${tw`text-brand-gray-light text-sm font-bold -mb-2`}
@@ -185,6 +185,7 @@ export default function Hero({
                       &__option,
                       &__single-value {
                         ${tw`text-brand-gray-light text-lg   bg-tansparent`}
+                        max-width: calc(100% - 2px);
                         &--is-selected {
                           ${tw`text-white bg-brand-green`}
                         }
@@ -200,9 +201,9 @@ export default function Hero({
                       How much do you want to borrow?
                     </h3>
                     <div className="row items-center justify-center mb-8">
-                      <div className="col w-full xs:w-5/12 lg:w-2/5  flex-shrink ">
+                      <div className="col w-full xs:w-auto xs:flex-grow sm:flex-grow sm:w-5/12 lg:w-2/5  flex-shrink ">
                         {" "}
-                        <div className="bg-brand-gray-bg  px-4 py-3   rounded-lg">
+                        <div className="bg-brand-gray-bg  pl-4 pr-1 py-3   rounded-lg">
                           <Select
                             // menuIsOpen={true}
                             classNamePrefix="select"
@@ -215,11 +216,11 @@ export default function Hero({
                           ></Select>
                         </div>
                       </div>
-                      <div className="col text-brand-gray-light font-bold font-titillium  xs:my-0 my-3  ">
+                      <div className="col col-collapse text-brand-gray-light font-bold font-titillium  xs:my-0 my-3  ">
                         for
                       </div>
-                      <div className="col w-full xs:w-5/12 lg:w-2/5  ">
-                        <div className="bg-brand-gray-bg  px-4 py-3    rounded-lg">
+                      <div className="col w-full xs:w-auto xs:flex-grow sm:flex-grow sm:w-5/12 lg:w-2/5  ">
+                        <div className="bg-brand-gray-bg  pl-4 pr-1 py-3    rounded-lg">
                           <Select
                             onMenuOpen={() => {}}
                             // menuIsOpen={true}
