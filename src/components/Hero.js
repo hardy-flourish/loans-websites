@@ -136,14 +136,14 @@ export default function Hero({
             }
           `}
         >
-          <div className="container pt-20 lg:pt-32 pb-12  text-black ">
+          <div className="container pt-12 lg:pt-32    text-black ">
             <div className="row">
               <div className="col w-full lg:w-1/2"></div>
               <div className="col w-full lg:w-1/2">
                 <div className=" text-right flex flex-col items-end">
                   <span id="handle"></span>
                   {mainHeadline && (
-                    <h1 className="text-4xl font-bold mb-3 mt-0  leading-tight">
+                    <h1 className="text-3xl lg:text-4xl font-bold mb-3 mt-0  leading-tight">
                       {mainHeadline}
                     </h1>
                   )}
@@ -230,7 +230,7 @@ export default function Hero({
             How much do you want to borrow?
           </h3>
           <div className="row items-center justify-center mb-8">
-            <div className="col w-full xs:w-5/12 lg:w-2/5  flex-shrink ">
+            <div className="col w-full xs:w-auto sm:w-5/12 sm:flex-grow-0 xs:flex-grow lg:w-2/5  flex-shrink ">
               {" "}
               <div className="border border-black  px-4 py-3   rounded-lg">
                 <Select
@@ -248,8 +248,10 @@ export default function Hero({
                 ></Select>
               </div>
             </div>
-            <div className="col font-titillium  xs:my-0 my-3  ">for</div>
-            <div className="col w-full xs:w-5/12 lg:w-2/5  ">
+            <div className="col col-collapse font-titillium   xs:my-0 my-3  ">
+              for
+            </div>
+            <div className="col w-full xs:w-auto sm:w-5/12 sm:flex-grow-0 xs:flex-grow lg:w-2/5  ">
               <div className="border border-black  px-4 py-3    rounded-lg">
                 <Select
                   onMenuOpen={() => {}}

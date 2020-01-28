@@ -13,5 +13,8 @@
   }
   .col {
     @apply px-4;
+    &.col-collapse {
+      @apply px-0;
+    }
   }
 }

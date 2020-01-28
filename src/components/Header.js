@@ -23,7 +23,7 @@ export default function Header({ setMenuIsOpen }) {
   `)
   return (
     <div className="shadow border-b border-brand-gray-bg">
-      <div className="container py-4">
+      <div className="container px-3 py-4">
         <div className="flex justify-between items-center">
           <div>
             <Link to="/">
