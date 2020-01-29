@@ -130,19 +130,20 @@ export default function Hero({
         style={{ backgroundPosition: "" }}
       >
         <div>
-          <div className="container px-4 pt-32 lg:pt-64 pb-12  text-white ">
+          <div className="container px-4 pt-24  md:pt-32 lg:pt-64 pb-12  text-white ">
             <div className="row">
               <div className="col w-full lg:w-1/2">
                 <div className=" ">
                   <span id="handle"></span>
                   {mainHeadline && (
-                    <h1 className="text-3xl lg:text-4xl font-bold mb-3 mt-0 leading-tight">
+                    <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 mt-0 leading-tight">
                       {mainHeadline}
                     </h1>
                   )}
+
                   {subHeadline && (
                     <h2
-                      className="text-xl  font-normal mt-3 mb-12 leading-snug"
+                      className="text-lg md:text-xl  font-normal mt-3 md:mb-12 leading-snug"
                       css={css`
                         strong {
                           ${tw`text-brand-green`}
@@ -161,7 +162,7 @@ export default function Hero({
                 {" "}
                 <div
                   id="calculator"
-                  className="bg-white rounded-lg   px-6 py-10 mt-2 mb-16 relative"
+                  className="bg-white rounded-lg   px-6 py-6 md:py-10 mt-2 mb-16 relative"
                   css={css`
                     .label {
                       ${tw`text-brand-gray-light text-sm font-bold -mb-2`}
@@ -197,11 +198,11 @@ export default function Hero({
                   `}
                 >
                   <div className=" ">
-                    <h3 className="text-center text-brand-gray-light text-2xl mt-0  mb-10">
+                    <h3 className="text-center text-brand-gray-light text-xl lg:text-2xl mt-0  mb-6 md:mb-10">
                       How much do you want to borrow?
                     </h3>
                     <div className="row items-center justify-center mb-8">
-                      <div className="col w-full xs:w-auto xs:flex-grow sm:flex-grow sm:w-5/12 lg:w-2/5  flex-shrink ">
+                      <div className="col w-full   lg:w-2/5  flex-shrink ">
                         {" "}
                         <div className="bg-brand-gray-bg  pl-4 pr-1 py-3   rounded-lg">
                           <Select
@@ -216,10 +217,10 @@ export default function Hero({
                           ></Select>
                         </div>
                       </div>
-                      <div className="col col-collapse text-brand-gray-light font-bold font-titillium  xs:my-0 my-3  ">
+                      <div className="col   col-collapse text-brand-gray-light font-bold font-titillium  xs:my-1 my-3  ">
                         for
                       </div>
-                      <div className="col w-full xs:w-auto xs:flex-grow sm:flex-grow sm:w-5/12 lg:w-2/5  ">
+                      <div className="col w-full   lg:w-2/5  ">
                         <div className="bg-brand-gray-bg  pl-4 pr-1 py-3    rounded-lg">
                           <Select
                             onMenuOpen={() => {}}
