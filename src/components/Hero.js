@@ -136,19 +136,19 @@ export default function Hero({
             }
           `}
         >
-          <div className="container pt-12 lg:pt-32    text-black ">
+          <div className="container pt-6 md:pt-12 lg:pt-32    text-black ">
             <div className="row">
               <div className="col w-full lg:w-1/2"></div>
               <div className="col w-full lg:w-1/2">
                 <div className=" text-right flex flex-col items-end">
                   <span id="handle"></span>
                   {mainHeadline && (
-                    <h1 className="text-3xl lg:text-4xl font-bold mb-3 mt-0  leading-tight">
+                    <h1 className=" text-xl md:text-3xl lg:text-4xl font-bold mb-3 mt-0  leading-tight">
                       {mainHeadline}
                     </h1>
                   )}
                   {subHeadline && (
-                    <h2 className="text-xl  font-normal mt-3 mb-12   leading-snug max-w-sm">
+                    <h2 className=" text-lg md:text-xl  font-normal mt-2 mb-6 md:mb-12   leading-snug max-w-sm">
                       {subHeadline}
                     </h2>
                   )}
@@ -194,7 +194,7 @@ export default function Hero({
     return (
       <div
         id="calculator"
-        className="bg-white  lg_rounded-lg px-6 py-10 mt-2 mb-4 lg:mb-16 relative"
+        className="bg-white  lg_rounded-lg px-6 py-6 md:py-10 mt-2 mb-4 lg:mb-16 relative"
         css={css`
           .select {
             &__indicator-separator {
@@ -226,13 +226,13 @@ export default function Hero({
         `}
       >
         <div className=" ">
-          <h3 className="text-center text-2xl mt-0  mb-10">
+          <h3 className="text-center text-xl md:text-2xl mt-0  mb-6  md:mb-10">
             How much do you want to borrow?
           </h3>
           <div className="row items-center justify-center mb-8">
-            <div className="col w-full xs:w-auto sm:w-5/12 sm:flex-grow-0 xs:flex-grow lg:w-2/5  flex-shrink ">
+            <div className="col w-full  md:w-2/5  flex-shrink ">
               {" "}
-              <div className="border border-black  px-4 py-3   rounded-lg">
+              <div className="border border-black  px-4 py-1 md:py-3   rounded-lg">
                 <Select
                   // menuIsOpen={true}
                   classNamePrefix="select"
@@ -248,11 +248,11 @@ export default function Hero({
                 ></Select>
               </div>
             </div>
-            <div className="col col-collapse font-titillium   xs:my-0 my-3  ">
+            <div className="col col-collapse font-titillium  my-2  md:my-3  ">
               for
             </div>
-            <div className="col w-full xs:w-auto sm:w-5/12 sm:flex-grow-0 xs:flex-grow lg:w-2/5  ">
-              <div className="border border-black  px-4 py-3    rounded-lg">
+            <div className="col w-full  md:w-2/5  ">
+              <div className="border border-black  px-4 py-1 md:py-3    rounded-lg">
                 <Select
                   onMenuOpen={() => {}}
                   // menuIsOpen={true}
