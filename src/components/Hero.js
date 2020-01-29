@@ -204,7 +204,7 @@ export default function Hero({
                     <div className="row items-center justify-center mb-8">
                       <div className="col w-full   lg:w-2/5  flex-shrink ">
                         {" "}
-                        <div className="bg-brand-gray-bg  pl-4 pr-1 py-3   rounded-lg">
+                        <div className="bg-brand-gray-bg  pl-4 pr-1 py-1 md:py-3   rounded-lg">
                           <Select
                             // menuIsOpen={true}
                             classNamePrefix="select"
@@ -221,7 +221,7 @@ export default function Hero({
                         for
                       </div>
                       <div className="col w-full   lg:w-2/5  ">
-                        <div className="bg-brand-gray-bg  pl-4 pr-1 py-3    rounded-lg">
+                        <div className="bg-brand-gray-bg  pl-4 pr-1 py-1 md:py-3    rounded-lg">
                           <Select
                             onMenuOpen={() => {}}
                             // menuIsOpen={true}
