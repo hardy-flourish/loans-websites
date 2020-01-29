@@ -193,7 +193,7 @@ export default function Hero({
               <div className="col    flex-shrink lg:flex items-center flex-col items-stretch justify-center w-full md:w-1/2  lg:w-1/4 ">
                 <div className="bg-brand-gray-bg  px-4 pt-2 pb-1 md:pt-3 md:mb-3 mb-4 lg:mb-0 rounded-lg">
                   <div className="label">Loan Amount</div>
-                  <Select
+                  {/* <Select
                     // menuIsOpen={true}
                     classNamePrefix="select"
                     isSearchable={false}
@@ -202,13 +202,31 @@ export default function Hero({
                     onChange={val => {
                       setAmount(val)
                     }}
-                  ></Select>
+                  ></Select> */}
+
+                  <select
+                    className="text-brand-dark text-lg bg-transparent outline-none font-bold w-full py-2 -mx-1"
+                    onChange={e => {
+                      let newVal = amountRange.filter(
+                        ({ value }) => value == e.target.value
+                      )[0]
+                      setAmount(newVal)
+                    }}
+                  >
+                    {amountRange.map(item => {
+                      return (
+                        <option key={item.value} value={item.value}>
+                          {item.label}
+                        </option>
+                      )
+                    })}
+                  </select>
                 </div>
               </div>
               <div className="col  col-sm flex-shrink lg:flex items-center flex-col items-stretch justify-center w-full md:w-1/2  lg:w-1/4  ">
                 <div className="bg-brand-gray-bg  px-4 px-4 pt-2 pb-1 md:pt-3 md:mb-3  mb-4 lg:mb-0  rounded-lg">
                   <div className="label">Loan Term</div>
-                  <Select
+                  {/* <Select
                     onMenuOpen={() => {}}
                     // menuIsOpen={true}
                     isSearchable={false}
@@ -218,7 +236,24 @@ export default function Hero({
                     onChange={val => {
                       setTerm(val)
                     }}
-                  ></Select>
+                  ></Select> */}
+                  <select
+                    className="text-brand-dark text-lg bg-transparent outline-none font-bold w-full py-2 -mx-1"
+                    onChange={e => {
+                      setTerm({
+                        value: e.target.value,
+                        label: `${e.target.value} months`,
+                      })
+                    }}
+                  >
+                    {termSet.map(item => {
+                      return (
+                        <option key={item.value} value={item.value}>
+                          {item.label}
+                        </option>
+                      )
+                    })}
+                  </select>
                 </div>
               </div>
               <div className="col w-full lg:w-auto ">

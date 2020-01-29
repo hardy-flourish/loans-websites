@@ -40,7 +40,7 @@ export default function Header({ setMenuIsOpen }) {
               ></img>
             </Link>
           </div>
-          <div className="navigation lg:block hidden">
+          <div className="navigation lg:flex items-center justify-end hidden text-sm">
             {menu &&
               menu.nodes.map(item => {
                 return (
