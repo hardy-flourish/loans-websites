@@ -6,6 +6,7 @@ import Footer from "./Footer"
 import css from "@emotion/css"
 import CookieConsent from "react-cookie-consent"
 import { useStaticQuery, graphql } from "gatsby"
+import Cta from "./Cta"
 export default function Layout({ children }) {
   const [menuIsOpen, setMenuIsOpen] = React.useState(false)
   const { cookies } = useStaticQuery(graphql`
@@ -26,6 +27,11 @@ export default function Layout({ children }) {
       <SideMenu {...{ menuIsOpen, setMenuIsOpen }}></SideMenu>
       <Header {...{ menuIsOpen, setMenuIsOpen }}></Header>
       {children}
+      <div className="bg-brand-gray-bg">
+        <div className="container text-center pb-16 -mt-8">
+          <Cta className="h-20 px-12"></Cta>
+        </div>
+      </div>
       <Reviews></Reviews>
       <Footer></Footer>
       <CookieConsent

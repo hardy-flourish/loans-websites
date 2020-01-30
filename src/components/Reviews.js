@@ -3,11 +3,12 @@ import css from "@emotion/css"
 import tw from "tailwind.macro"
 import { IoMdStar } from "react-icons/io"
 import { MdStars } from "react-icons/md"
+import Cta from "./Cta"
 export default function Reviews() {
   return (
     <div className="shadow text-center">
       <div
-        className="container py-8 text"
+        className="container py-8 text leading-normal"
         css={css`
           font-family: sans-serif;
           strong {
