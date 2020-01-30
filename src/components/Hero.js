@@ -206,6 +206,7 @@ export default function Hero({
 
                   <select
                     className="text-brand-dark text-lg bg-transparent outline-none font-bold w-full py-2 -mx-1"
+                    value={amount.value}
                     onChange={e => {
                       let newVal = amountRange.filter(
                         ({ value }) => value == e.target.value
@@ -239,6 +240,7 @@ export default function Hero({
                   ></Select> */}
                   <select
                     className="text-brand-dark text-lg bg-transparent outline-none font-bold w-full py-2 -mx-1"
+                    value={term.value}
                     onChange={e => {
                       setTerm({
                         value: e.target.value,
