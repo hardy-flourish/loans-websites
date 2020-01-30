@@ -3,6 +3,7 @@ import Header from "./Header"
 import SideMenu from "./SideMenu"
 import Reviews from "./Reviews"
 import Footer from "./Footer"
+import Cta from "./Cta"
 import CookieConsent from "react-cookie-consent"
 import { useStaticQuery, graphql } from "gatsby"
 import css from "@emotion/css"
@@ -26,6 +27,9 @@ export default function Layout({ children }) {
       <SideMenu {...{ menuIsOpen, setMenuIsOpen }}></SideMenu>
       <Header {...{ menuIsOpen, setMenuIsOpen }}></Header>
       {children}
+      <div className="container text-center pb-16 -mt-8">
+        <Cta className="w-64 h-16 px-12" />
+      </div>
       <Reviews></Reviews>
       <Footer></Footer>
       <CookieConsent
