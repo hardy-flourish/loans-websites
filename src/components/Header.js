@@ -18,6 +18,7 @@ export default function Header({ setMenuIsOpen }) {
       ) {
         nodes {
           slug
+          isThisAGuide
           navigationTitle
         }
       }
@@ -27,16 +28,20 @@ export default function Header({ setMenuIsOpen }) {
     const hero = document.getElementById("hero")
     const handle = document.getElementById("handle")
     const header = document.getElementById("header")
+    const dropdowns = document.getElementsByClassName("dropdown")
     if (!hero) {
       header.classList.add("bg-brand-purple")
+      dropdowns[0].classList.add("bg-brand-purple")
     }
     var observer = new IntersectionObserver(
       entries => {
         console.log(entries[0].isIntersecting)
         if (entries[0].isIntersecting) {
           header.classList.remove("bg-brand-purple")
+          dropdowns[0].classList.remove("secondary")
         } else {
           header.classList.add("bg-brand-purple")
+          dropdowns[0].classList.add("secondary")
         }
       },
       {
@@ -91,24 +96,10 @@ export default function Header({ setMenuIsOpen }) {
                 ></img>
               </Link>
             </div>
-            <div className="navigation lg:block hidden">
-              {menu &&
-                menu.nodes.map(item => {
-                  return (
-                    <Link
-                      className=" mr-6 tracking-wide text-white"
-                      key={item.slug}
-                      to={
-                        item.slug == "/"
-                          ? "/"
-                          : `/${item.slug}/`.replace("//", "/")
-                      }
-                    >
-                      {item.navigationTitle}
-                    </Link>
-                  )
-                })}
-              <Cta></Cta>
+            <div className="navigation lg:flex hidden">
+              <Links menu={menu}></Links>
+
+              <Cta className="relative z-50 ml-8"></Cta>
             </div>
             <div className="lg:hidden">
               <FiMenu
@@ -121,6 +112,67 @@ export default function Header({ setMenuIsOpen }) {
           </div>
         </div>
       </div>
+    </>
+  )
+}
+
+function Links({ menu }) {
+  return (
+    <>
+      <div className="group py-5 relative">
+        <a className="uppercase text-white mr-6 tracking-wide cursor-pointer">
+          Guides
+        </a>
+        <div
+          css={css`
+            left: -1rem;
+            ${tw`bg-white text-brand-purple shadow  pt-4 mt-5`}
+            &.secondary {
+              ${tw`bg-brand-purple text-white `}
+            }
+          `}
+          className="dropdown absolute    w-56     p-4 z-30   hidden group-hover:block"
+        >
+          {menu &&
+            menu.nodes
+              .filter(i => i.isThisAGuide)
+              .map(item => {
+                return (
+                  <div className="py-2">
+                    <Link
+                      className="uppercase  mr-6 lg:mr-0 tracking-wide hover:text-brand-green"
+                      key={item.slug}
+                      to={
+                        item.slug == "/"
+                          ? "/"
+                          : `/${item.slug}/`.replace("//", "/")
+                      }
+                    >
+                      {item.navigationTitle}
+                    </Link>
+                  </div>
+                )
+              })}
+        </div>
+      </div>
+      {menu &&
+        menu.nodes
+          .filter(i => !i.isThisAGuide)
+          .map(item => {
+            return (
+              <div className="py-5">
+                <Link
+                  className="uppercase text-white mr-6  tracking-wide hover:text-brand-green"
+                  key={item.slug}
+                  to={
+                    item.slug == "/" ? "/" : `/${item.slug}/`.replace("//", "/")
+                  }
+                >
+                  {item.navigationTitle}
+                </Link>
+              </div>
+            )
+          })}
     </>
   )
 }
