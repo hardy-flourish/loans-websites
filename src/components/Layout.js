@@ -3,10 +3,24 @@ import Header from "./Header"
 import SideMenu from "./SideMenu"
 import Reviews from "./Reviews"
 import Footer from "./Footer"
-
+import CookieConsent from "react-cookie-consent"
+import { useStaticQuery, graphql } from "gatsby"
+import css from "@emotion/css"
 export default function Layout({ children }) {
   const [menuIsOpen, setMenuIsOpen] = React.useState(false)
-
+  const { cookies } = useStaticQuery(graphql`
+    {
+      cookies: contentfulCookiePopup(
+        websites: { in: ["Compare Guarantor Loans"] }
+      ) {
+        text {
+          md: childMarkdownRemark {
+            html
+          }
+        }
+      }
+    }
+  `)
   return (
     <div className="min-h-screen flex flex-col">
       <SideMenu {...{ menuIsOpen, setMenuIsOpen }}></SideMenu>
@@ -14,6 +28,26 @@ export default function Layout({ children }) {
       {children}
       <Reviews></Reviews>
       <Footer></Footer>
+      <CookieConsent
+        style={{ alignItems: "center" }}
+        buttonText="Accept"
+        buttonStyle={{ color: "#000", background: "#fff" }}
+        enableDeclineButton={false}
+        flipButtons
+      >
+        <div
+          css={css`
+            a {
+              text-decoration: underline;
+              color: #fff;
+            }
+            p {
+              margin-bottom: 0;
+            }
+          `}
+          dangerouslySetInnerHTML={{ __html: cookies && cookies.text.md.html }}
+        ></div>
+      </CookieConsent>
     </div>
   )
 }
