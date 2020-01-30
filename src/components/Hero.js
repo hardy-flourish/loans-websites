@@ -7,6 +7,7 @@ import Select from "react-select"
 import Cta from "./Cta"
 import { IoIosCheckmarkCircle } from "react-icons/io"
 import arrow from "../images/get-started.png"
+import queryString from "query-string"
 export default function Hero({
   data: {
     heroBannerImage,
@@ -84,8 +85,9 @@ export default function Hero({
       label: `${item} months`,
     })),
   ])
+  const [initial, setInitial] = useState(true)
   useEffect(() => {
-    if (amount) {
+    if (amount && !initial) {
       let set = termsValues[termsSetIndex(amount.value)]
       setTermSet([
         ...termsValues[termsSetIndex(amount.value)].map(item => ({
@@ -101,6 +103,25 @@ export default function Hero({
       }
     }
   }, [amount])
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const { lt, la } = queryString.parse(window.location.search)
+      if (lt) {
+        setTerm({
+          value: lt,
+          label: lt + " months",
+        })
+      }
+
+      if (la && la % 100 == 0) {
+        setAmount({
+          value: la,
+          label: "£" + la,
+        })
+      }
+    }
+  }, [])
 
   return (
     <div
@@ -219,6 +240,7 @@ export default function Hero({
                             className="text-brand-dark text-lg bg-transparent outline-none  w-full py-2 -mx-1"
                             value={amount.value}
                             onChange={e => {
+                              initial && setInitial(false)
                               let newVal = amountRange.filter(
                                 ({ value }) => value == e.target.value
                               )[0]
