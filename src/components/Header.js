@@ -16,13 +16,14 @@ export default function Header({ setMenuIsOpen }) {
       ) {
         nodes {
           slug
+          isThisAGuide
           navigationTitle
         }
       }
     }
   `)
   return (
-    <div className="shadow border-b border-brand-gray-bg">
+    <div className="shadow border-b border-brand-gray-bg  ">
       <div className="container px-3 py-4">
         <div className="flex justify-between items-center">
           <div>
@@ -41,24 +42,9 @@ export default function Header({ setMenuIsOpen }) {
               ></img>
             </Link>
           </div>
-          <div className="navigation lg:block hidden">
-            {menu &&
-              menu.nodes.map(item => {
-                return (
-                  <Link
-                    className="  mr-6 tracking-wide "
-                    key={item.slug}
-                    to={
-                      item.slug == "/"
-                        ? "/"
-                        : `/${item.slug}/`.replace("//", "/")
-                    }
-                  >
-                    {item.navigationTitle}
-                  </Link>
-                )
-              })}
-            <Cta></Cta>
+          <div className="navigation lg:flex items-center hidden">
+            <Links menu={menu}></Links>
+            <Cta className="z-50"></Cta>
           </div>
           <div className="lg:hidden">
             <GiHamburgerMenu
@@ -71,5 +57,60 @@ export default function Header({ setMenuIsOpen }) {
         </div>
       </div>
     </div>
+  )
+}
+function Links({ menu }) {
+  return (
+    <>
+      <div className="group py-5 relative">
+        <a className="uppercase mr-6 tracking-wide cursor-pointer">Guides</a>
+        <div
+          css={css`
+            left: -1rem;
+          `}
+          className="absolute   pt-12  w-56   p-4   bg-white hidden group-hover:block z-10"
+        >
+          {" "}
+          {menu &&
+            menu.nodes
+              .filter(i => i.isThisAGuide)
+              .map(item => {
+                return (
+                  <div className="py-2">
+                    <Link
+                      className="uppercase mr-6 lg:mr-0 tracking-wide hover:text-brand-blue"
+                      key={item.slug}
+                      to={
+                        item.slug == "/"
+                          ? "/"
+                          : `/${item.slug}/`.replace("//", "/")
+                      }
+                    >
+                      {item.navigationTitle}
+                    </Link>
+                  </div>
+                )
+              })}
+        </div>
+      </div>
+      {menu &&
+        menu.nodes
+          .filter(i => !i.isThisAGuide)
+          .map(item => {
+            return (
+              <div className="py-2">
+                <Link
+                  className="uppercase mr-6  tracking-wide hover:text-brand-blue"
+                  key={item.slug}
+                  to={
+                    item.slug == "/" ? "/" : `/${item.slug}/`.replace("//", "/")
+                  }
+                >
+                  {item.navigationTitle}
+                </Link>
+              </div>
+            )
+          })}
+    </>
   )
 }

@@ -74,7 +74,10 @@ module.exports = {
       },
     },
   },
-  variants: { borderWidth: ["responsive", "first", "last", "hover", "focus"] },
+  variants: {
+    display: ["responsive", "group-hover"],
+    borderWidth: ["responsive", "first", "last", "hover", "focus"],
+  },
   plugins: [],
 }
 
