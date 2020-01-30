@@ -6,9 +6,7 @@ import Hero from "@components/Hero"
 import ValueExplainer from "@components/ValueExplainer"
 import CommonQuestions from "@components/CommonQuestions"
 import ContentComponent from "@components/Content"
-
 export default function Page({ data: { heroData, VE, QA, Content } }) {
-  console.log({ heroData, VE, QA, Content })
   return (
     <Layout>
       {heroData.hasAHeroBanner && <Hero data={heroData}></Hero>}
