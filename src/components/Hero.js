@@ -269,7 +269,7 @@ export default function Hero({
                 ></Select> */}
                 <select
                   className="text-brand-dark text-lg bg-transparent outline-none   w-full py-2 -mx-1"
-                  value={amount.value}
+                  value={amount && amount.value}
                   onChange={e => {
                     initial && setInitial(false)
                     setAmount({
@@ -307,7 +307,7 @@ export default function Hero({
                 ></Select> */}
                 <select
                   className="text-brand-dark text-lg bg-transparent outline-none  w-full py-2 -mx-1"
-                  value={term.value}
+                  value={term && term.value}
                   onChange={e => {
                     setTerm({
                       value: e.target.value,
