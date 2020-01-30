@@ -29,6 +29,7 @@
     "postcss-import": "^12.0.1",
     "postcss-nested": "^4.2.1",
     "prop-types": "^15.7.2",
+    "query-string": "^6.10.1",
     "react": "^16.12.0",
     "react-collapse": "^5.0.1",
     "react-cookie-consent": "^3.0.0",
