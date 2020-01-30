@@ -1,4 +1,26 @@
-;<div className="bg-brand-gray-bg">
+
+import CookieConsent from "react-cookie-consent"
+
+  ;<CookieConsent
+    style={{ alignItems: "center" }}
+    buttonText="Accept"
+    buttonStyle={{ color: "#fff", background: "#ff5e14" }}
+    enableDeclineButton={false}
+    flipButtons
+  >
+    <div
+      css={css`
+        a {
+          text-decoration: underline;
+          color: #ff5e14;
+        }
+        p {
+          margin-bottom: 0;
+        }
+      `}
+      dangerouslySetInnerHTML={{ __html: cookies && cookies.text.md.html }}
+    ></div>
+  </CookieConsent><div className="bg-brand-gray-bg">
   <div className="container text-center pb-16 -mt-8">
     <Cta className="h-20 px-12"></Cta>
   </div>
