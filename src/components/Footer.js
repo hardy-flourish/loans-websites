@@ -31,7 +31,10 @@ export default function Footer() {
           }
         }
       }
-      legal: contentfulLegalContent {
+      legal: contentfulLegalContent(
+        node_locale: { eq: "en-US" }
+        website: { in: ["Compare Guarantor Loans"] }
+      ) { {
         footerLegalContent {
           md: childMarkdownRemark {
             html
