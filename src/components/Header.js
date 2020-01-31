@@ -78,7 +78,7 @@ function Links({ menu }) {
                 return (
                   <div className="py-2">
                     <Link
-                      className="uppercase mr-6 lg:mr-0 tracking-wide hover:text-brand-blue"
+                      className=" mr-6 lg:mr-0 tracking-wide hover:text-brand-blue"
                       key={item.slug}
                       to={
                         item.slug == "/"
