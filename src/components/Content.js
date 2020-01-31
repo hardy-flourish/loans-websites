@@ -5,7 +5,7 @@ export default function CommonQuestions({ data }) {
     <div className="bg-brand-gray-bg flex-grow">
       {" "}
       <div
-        className="container py-24"
+        className="container content py-24"
         dangerouslySetInnerHTML={{ __html: data.main.md.html }}
       ></div>
     </div>

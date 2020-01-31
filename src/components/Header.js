@@ -64,35 +64,38 @@ export default function Header({ setMenuIsOpen }) {
 function Links({ menu }) {
   return (
     <>
-      <li className="group py-5 relative">
+      <li className="group py-5 relative ">
         <a className="uppercase mr-6 tracking-wide cursor-pointer">Guides</a>
         <ul
           css={css`
             left: -1rem;
           `}
-          className="absolute   pt-12  w-56   p-4 z-30  bg-white hidden group-hover:block"
+          className="absolute  z-30    pt-8  bg-white hidden group-hover:block"
         >
           {" "}
-          {menu &&
-            menu.nodes
-              .filter(i => i.isThisAGuide)
-              .map(item => {
-                return (
-                  <li className="py-2">
-                    <Link
-                      className="uppercase mr-6 lg:mr-0 tracking-wide hover:text-brand-orange"
-                      key={item.slug}
-                      to={
-                        item.slug == "/"
-                          ? "/"
-                          : `/${item.slug}/`.replace("//", "/")
-                      }
-                    >
-                      {item.navigationTitle}
-                    </Link>
-                  </li>
-                )
-              })}
+          <div className="shadow-lg  w-56   p-4">
+            {" "}
+            {menu &&
+              menu.nodes
+                .filter(i => i.isThisAGuide)
+                .map(item => {
+                  return (
+                    <li className="py-2">
+                      <Link
+                        className=" mr-6 lg:mr-0 tracking-wide hover:text-brand-orange"
+                        key={item.slug}
+                        to={
+                          item.slug == "/"
+                            ? "/"
+                            : `/${item.slug}/`.replace("//", "/")
+                        }
+                      >
+                        {item.navigationTitle}
+                      </Link>
+                    </li>
+                  )
+                })}
+          </div>
         </ul>
       </li>
       {menu &&
