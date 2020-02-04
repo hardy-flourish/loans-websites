@@ -11,6 +11,7 @@ export default function Header({ setMenuIsOpen }) {
         filter: {
           node_locale: { eq: "en-US" }
           addToMainNavigation: { eq: true }
+          website: { in: ["Compare Guarantor Loans"] }
         }
       ) {
         nodes {
