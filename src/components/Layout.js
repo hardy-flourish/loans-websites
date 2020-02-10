@@ -7,7 +7,7 @@ import Cta from "./Cta"
 import { useStaticQuery, graphql } from "gatsby"
 import CookieConsent from "react-cookie-consent"
 import css from "@emotion/css"
-export default function Layout({ children }) {
+export default function Layout({ children, formPage }) {
   const [menuIsOpen, setMenuIsOpen] = React.useState(false)
   const { cookies } = useStaticQuery(graphql`
     {
@@ -27,33 +27,40 @@ export default function Layout({ children }) {
       <SideMenu {...{ menuIsOpen, setMenuIsOpen }}></SideMenu>
       <Header {...{ menuIsOpen, setMenuIsOpen }}></Header>
       {children}
-      <div className="bg-brand-gray-bg">
-        <div className="container text-center pb-16 -mt-8">
-          <Cta className="h-20 px-12"></Cta>
-        </div>
-      </div>
-      <Reviews></Reviews>
-      <Footer></Footer>
-      <CookieConsent
-        style={{ alignItems: "center" }}
-        buttonText="Accept"
-        buttonStyle={{ color: "#fff", background: "#0bde97" }}
-        enableDeclineButton={false}
-        flipButtons
-      >
-        <div
-          css={css`
-            a {
-              text-decoration: underline;
-              color: #0bde97;
-            }
-            p {
-              margin-bottom: 0;
-            }
-          `}
-          dangerouslySetInnerHTML={{ __html: cookies && cookies.text.md.html }}
-        ></div>
-      </CookieConsent>
+
+      {!formPage && (
+        <>
+          <div className="bg-brand-gray-bg">
+            <div className="container text-center pb-16 -mt-8">
+              <Cta className="h-20 px-12"></Cta>
+            </div>
+          </div>{" "}
+          <Reviews></Reviews>
+          <Footer></Footer>
+          <CookieConsent
+            style={{ alignItems: "center" }}
+            buttonText="Accept"
+            buttonStyle={{ color: "#fff", background: "#0bde97" }}
+            enableDeclineButton={false}
+            flipButtons
+          >
+            <div
+              css={css`
+                a {
+                  text-decoration: underline;
+                  color: #0bde97;
+                }
+                p {
+                  margin-bottom: 0;
+                }
+              `}
+              dangerouslySetInnerHTML={{
+                __html: cookies && cookies.text.md.html,
+              }}
+            ></div>
+          </CookieConsent>
+        </>
+      )}
     </div>
   )
 }
