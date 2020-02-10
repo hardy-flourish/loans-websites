@@ -3,8 +3,8 @@ import { Link } from "gatsby"
 
 export default function Cta({ className, amount = 2000, term = 12 }) {
   return (
-    <Link
-      to="/apply/"
+    <a
+      href="/apply/"
       state={{ amount, term }}
       className={
         "text-white inline-flex items-center justify-center bg-brand-orange inline-block tracking-wide  py-4 px-6 rounded-lg " +
@@ -13,6 +13,6 @@ export default function Cta({ className, amount = 2000, term = 12 }) {
     >
       {" "}
       Find My Loan
-    </Link>
+    </a>
   )
 }

@@ -117,6 +117,23 @@ export default function Hero({
     }
   }, [])
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.__loanAmount = window.localStorage.setItem(
+        "__loanAmount",
+        amount.value
+      )
+    }
+  }, [amount])
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.__loanAmount = window.localStorage.setItem(
+        "__loanTerm",
+        term.value
+      )
+    }
+  }, [term])
+
   return (
     <BackgroundImage
       fluid={[

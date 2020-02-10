@@ -4,7 +4,7 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import logo from "../images/logo.svg"
 import { GiHamburgerMenu } from "react-icons/gi"
 import css from "@emotion/css"
-export default function Header({ setMenuIsOpen }) {
+export default function Header({ setMenuIsOpen, formPage }) {
   const { menu } = useStaticQuery(graphql`
     {
       menu: allContentfulPage(
@@ -23,7 +23,19 @@ export default function Header({ setMenuIsOpen }) {
     }
   `)
   return (
-    <div className="shadow">
+    <div
+      className="shadow"
+      css={css`
+        position: relative;
+        ${formPage
+          ? `
+        z-index: 99999;
+        background: white;
+
+        `
+          : ""}
+      `}
+    >
       <div className="container py-3">
         <div className="flex justify-between items-center">
           <div>
