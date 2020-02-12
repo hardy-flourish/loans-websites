@@ -10,6 +10,7 @@ export default function SideMenu({ menuIsOpen, setMenuIsOpen }) {
       menu: allContentfulPage(
         filter: {
           node_locale: { eq: "en-US" }
+          website: { in: ["Compare Guarantor Loans"] }
           addToMainNavigation: { eq: true }
         }
       ) {
